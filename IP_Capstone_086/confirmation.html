@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .details {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Booking Confirmed!</h1>
+    <p class="details" id="bookingDetails">Loading details...</p>
+    <a href="index.html" class="btn">Back to Home</a>
+
+    <script>
+        // Display booking details from query parameters
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const email = params.get("email");
+        const phone = params.get("phone");
+        const date = params.get("date");
+        const time = params.get("time");
+        const guests = params.get("guests");
+
+        const detailsElement = document.getElementById("bookingDetails");
+        detailsElement.innerHTML = `
+            <strong>Name:</strong> ${name}<br>
+            <strong>Email:</strong> ${email}<br>
+            <strong>Phone:</strong> ${phone}<br>
+            <strong>Date:</strong> ${date}<br>
+            <strong>Time:</strong> ${time}<br>
+            <strong>Guests:</strong> ${guests}
+        `;
+    </script>
+</body>
+</html>
